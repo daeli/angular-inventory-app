@@ -1,0 +1,52 @@
+<div class="container">
+
+  {{title}}
+
+  <form [formGroup]="productForm" (submit)="onSubmit()">
+    <div class="row">
+      <div class="col-sm-2">
+        <label for="name">Name</label>
+        <input id="name" type="text" name="name" class="form-control" formControlName="name">
+      </div>
+      <div class="col-sm-2">
+        <label for="description">Description</label>
+        <input id="description" type="text" name="description" class="form-control" formControlName="description">
+      </div>
+      <div class="col-sm-2">
+        <label for="category">Category</label>
+        <input id="category" type="text" name="category" class="form-control" formControlName="category">
+      </div>
+      <div class="col-sm-2">
+        <label for="quantity">Quantity</label>
+        <input id="quantity" type="text" name="quantity" class="form-control" formControlName="quantity">
+      </div>
+      <div class="col-sm-2">
+        <button type="submit" class="btn btn-primary" style="margin-top: 22px;" >Add Product</button>
+      </div>
+    </div>
+  </form>
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (
+          product of products; track $index) {
+          <tr>
+            <td>{{product.name}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.category}}</td>
+            <td>{{product.quantity}}</td>
+          </tr>
+          }
+      </tbody>
+
+    </table>
+  </div>
+</div>
